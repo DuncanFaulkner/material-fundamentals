@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './material.module';
 
-const APPMODULES = [
-  BrowserModule,
-  BrowserAnimationsModule,
-  AppRoutingModule,
-  MaterialModule,
-];
+const APPMODULES = [BrowserAnimationsModule, AppRoutingModule];
+
+const MATERIALMODULES = [MatButtonModule];
 @NgModule({
   declarations: [AppComponent],
-  imports: [APPMODULES, BrowserAnimationsModule],
+  imports: [APPMODULES, MATERIALMODULES],
   providers: [],
   bootstrap: [AppComponent],
 })
