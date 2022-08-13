@@ -1,0 +1,73 @@
+<!-- simple example -->
+<mat-card class="mat-elevation-z6">
+  <mat-card-content>
+    <mat-form-field>
+      <input type="text" placeholder="Name" matInput autocomplete="off" />
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
+<hr />
+
+<!-- Appearance options -->
+<mat-card class="mat-elevation-z6">
+  <mat-card-content>
+    <!-- select -->
+    <mat-form-field appearance="fill">
+      <mat-label>Groups</mat-label>
+      <span matSuffix><mat-icon>groups</mat-icon></span>
+      <mat-select>
+        <mat-option>-- None --</mat-option>
+        <mat-option value="option1">Users</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- chartactor count -->
+    <mat-form-field appearance="fill">
+      <mat-label>outline</mat-label>
+      <input #count type="text" matInput autocomplete="off" />
+      <mat-hint align="end">{{ count.value.length || 0 }}/25</mat-hint>
+    </mat-form-field>
+
+    <!-- error messages -->
+    <mat-form-field appearance="fill">
+      <mat-label>outline</mat-label>
+      <input type="text" matInput [formControl]="name" autocomplete="off" />
+      <mat-error *ngIf="name.hasError('required')"
+        >Field is required.</mat-error
+      >
+      <mat-error *ngIf="name.hasError('maxlength')"
+        >Max length reached.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- change color -->
+    <mat-form-field color="primary">
+      <mat-label>Standard</mat-label>
+      <input type="text" matInput autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Standard</mat-label>
+      <input type="text" matInput autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fill</mat-label>
+      <input type="text" matInput autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Outline</mat-label>
+      <input type="text" matInput autocomplete="off" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>outline</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput autocomplete="off" />
+      <button mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{ hide ? "visibility_off" : "visibility_on" }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

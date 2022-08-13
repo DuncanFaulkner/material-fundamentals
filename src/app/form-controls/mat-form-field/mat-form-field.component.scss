@@ -1,0 +1,18 @@
+mat-card {
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 300px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: lightgray;
+}
+
+::ng-deep .mat-form-field-required-marker {
+  color: red
+}
+
+::ng-deep .mat-focused .mat-form-field-required-marker {
+  color: red;
+}
