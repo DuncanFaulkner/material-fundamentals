@@ -1,3 +1,4 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -9,16 +10,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { MatFormFieldComponent } from './mat-form-field/mat-form-field.component';
 import { IconService } from './mat-icon/icon.service';
 import { MatIconComponent } from './mat-icon/mat-icon.component';
+import { MatTableComponent } from './mat-table/mat-table.component';
 
 const routes: Routes = [
   { path: 'auto-complete', component: AutoCompleteComponent },
   { path: 'mat-icon', component: MatIconComponent },
   { path: 'mat-form-field', component: MatFormFieldComponent },
+  { path: 'mat-table', component: MatTableComponent },
 ];
 
 const OPTIONS = {
@@ -43,6 +47,8 @@ const MATERIALMODULES = [
   MatIconModule,
   MatCardModule,
   MatSelectModule,
+  MatTableModule,
+  DragDropModule,
 ];
 
 const PROVIDERS = [
@@ -56,6 +62,7 @@ const PROVIDERS = [
     AutoCompleteComponent,
     MatIconComponent,
     MatFormFieldComponent,
+    MatTableComponent,
   ],
   imports: [ANGULARMODULES, MATERIALMODULES],
   exports: [RouterModule],
