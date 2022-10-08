@@ -1,0 +1,191 @@
+<hr />
+
+<!-- simple checkbox -->
+<mat-card>
+  <mat-card-content>
+    <mat-checkbox [disabled]="true">Disabled</mat-checkbox>
+    <br />
+    <mat-checkbox [checked]="true">Checked</mat-checkbox>
+    <br />
+    <mat-checkbox [indeterminate]="true">with indeterminate set</mat-checkbox>
+    <br />
+    <mat-checkbox [checked]="false">Unchecked</mat-checkbox>
+  </mat-card-content>
+  <hr />
+  <!-- Checkboxes -->
+  <mat-card-content>
+    <mat-checkbox
+      color="primary"
+      [checked]="allIngredientsAdded"
+      [indeterminate]="inComplete()"
+      (change)="selectAll($event.checked)"
+    >
+      {{ recipe.name }}
+    </mat-checkbox>
+
+    <ul>
+      <li *ngFor="let ingredient of recipe.ingredients">
+        <mat-checkbox
+          color="primary"
+          [(ngModel)]="ingredient.completed"
+          (ngModelChange)="allComplete()"
+        >
+          {{ ingredient.name }}
+        </mat-checkbox>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>
+
+<!-- Inputs -->
+<hr />
+<mat-form-field>
+  <mat-label>Color</mat-label>
+  <input type="color" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Date</mat-label>
+  <input type="date" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>DateTime-Local</mat-label>
+  <input type="datetime-local" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Email</mat-label>
+  <input type="email" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Month</mat-label>
+  <input type="month" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Number</mat-label>
+  <input type="number" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Password</mat-label>
+  <input type="password" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input type="search" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Telephone</mat-label>
+  <input type="tel" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Text</mat-label>
+  <input type="text" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Time</mat-label>
+  <input type="time" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>URL</mat-label>
+  <input type="url" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<mat-form-field>
+  <mat-label>Week</mat-label>
+  <input type="week" matInput autocomplete="off" />
+</mat-form-field>
+<hr />
+<input type="file" autocomplete="off" />
+<hr />
+<input type="button" autocomplete="off" value="Button" />
+<hr />
+<input type="checkbox" autocomplete="off" value="Checkbox" />
+<hr />
+<input type="datetime" autocomplete="off" />
+<hr />
+<span>Hidden Input</span>
+<input type="hidden" autocomplete="off" />
+<hr />
+<input type="image" autocomplete="off" />
+<hr />
+<input type="radio" autocomplete="off" />
+<hr />
+<input type="range" autocomplete="off" />
+<hr />
+<input type="reset" autocomplete="off" />
+<hr />
+<input type="submit" autocomplete="off" />
+<hr />
+
+<!-- Radio buttons -->
+<div class="position">
+  <!-- simple example -->
+  <mat-label>Simple Sample</mat-label><br />
+  <mat-radio-button name="sample" value="1">Sample</mat-radio-button>
+  <hr />
+  <!-- radio button states -->
+  <mat-label>States</mat-label><br />
+  <mat-radio-button [disabled]="true" value="latte">Latte</mat-radio-button>
+  <mat-radio-button [checked]="true" value="mocha">Mocha</mat-radio-button>
+  <mat-radio-button [checked]="false" value="mocha">Espresso</mat-radio-button>
+  <hr />
+  <!-- Label Position -->
+  <mat-label>Label Position</mat-label><br />
+  <mat-radio-button [labelPosition]="'before'" value="mocha">
+    Mocha
+  </mat-radio-button>
+  <mat-radio-button [labelPosition]="'before'" value="latte">
+    Latte
+  </mat-radio-button>
+  <!-- radio button groups, each radio button named -->
+  <mat-radio-group>
+    <mat-label>Groups</mat-label><br />
+    <mat-radio-button name="”options”">Latte</mat-radio-button>
+    <mat-radio-button name="”options”">Mocha</mat-radio-button>
+  </mat-radio-group>
+  <hr />
+  <!-- radio button groups - named at the group level -->
+  <mat-radio-group name="options">
+    <mat-label>Groups - Named</mat-label><br />
+    <mat-radio-button value="1">Latte</mat-radio-button>
+    <mat-radio-button value="2">Mocha</mat-radio-button>
+  </mat-radio-group>
+  <hr />
+  <!-- change event -->
+  <mat-label>Change Event</mat-label><br />
+  <mat-radio-group (change)="onChange($event)" name="”options”">
+    <mat-radio-button value="latte">Latte</mat-radio-button>
+    <mat-radio-button value="mocha">Mocha</mat-radio-button>
+  </mat-radio-group>
+  <hr />
+  <!--  theme -->
+  <mat-label>Theme</mat-label><br />
+  <mat-radio-group (change)="onChange($event)" name="”options”">
+    <mat-radio-button [color]="'primary'" value="latte">Latte</mat-radio-button>
+    <mat-radio-button [color]="'accent'" value="mocha">Mocha</mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<!-- slide toggle -->
+<div class="position">
+  <mat-slide-toggle [labelPosition]="'before'">Option 1</mat-slide-toggle>
+  <hr />
+  <mat-slide-toggle [disabled]="true">Option 1</mat-slide-toggle>
+  <hr />
+  <mat-slide-toggle [checked]="true">Option 2</mat-slide-toggle>
+  <hr />
+  <mat-slide-toggle [checked]="false">Option 3</mat-slide-toggle>
+  <hr />
+  <mat-slide-toggle [labelPosition]="'before'" (change)="onToggleChange($event)"
+    >Change Event</mat-slide-toggle
+  >
+</div>
