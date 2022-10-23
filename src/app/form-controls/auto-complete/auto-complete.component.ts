@@ -1,26 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
-
 export interface CountyGroup {
   capital: string;
   names: string[];
 }
-export const filter = (opt: string[], value: string): string[] =>
-  opt.filter((item) => item.toLowerCase().indexOf(value.toLowerCase()) === 0);
+export const _filter = (opt: string[], value: string): string[] => {
+  const filterValue = value.toLowerCase();
 
+  return opt.filter((item) => item.toLowerCase().includes(filterValue));
+};
 @Component({
   selector: 'app-auto-complete',
   templateUrl: './auto-complete.component.html',
   styleUrls: ['./auto-complete.component.scss'],
 })
 export class AutoCompleteComponent implements OnInit {
+  countyForm!: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
 
-  countyForm: FormGroup = this.formBuilder.group({
-    countyGroup: '',
-  });
-
+  ngOnInit() {
+    this.countyForm = this.formBuilder.group({
+      countyGroup: '',
+    });
+    this.countyGroupOptions = this.countyForm
+      .get('countyGroup')!
+      .valueChanges.pipe(
+        startWith(''),
+        map((value) => this.filterGroup(value))
+      );
+  }
+  private filterGroup(value: string): CountyGroup[] {
+    if (value) {
+      return this.countyGroups
+        .map((group) => ({
+          capital: group.capital,
+          names: _filter(group.names, value),
+        }))
+        .filter((group) => group.names.length > 0);
+    }
+    return this.countyGroups;
+  }
   countyGroups: CountyGroup[] = [
     {
       capital: 'B',
@@ -123,33 +143,6 @@ export class AutoCompleteComponent implements OnInit {
   ];
   countyGroupOptions!: Observable<CountyGroup[]>;
 
-  ngOnInit() {
-    this.countyGroupOptions = this.countyForm
-      .get('countyGroup')!
-      .valueChanges.pipe(
-        startWith(''),
-        map((value) => this.filterGroup(value))
-      );
-  }
-  private filterGroup(value: string): CountyGroup[] {
-    if (value) {
-      return this.countyGroups
-        .map((group) => ({
-          capital: group.capital,
-          names: filter(group.names, value),
-        }))
-        .filter((group) => group.names.length > 0);
-    }
-    return this.countyGroups;
-  }
-
-  // protected countries: string[] = [
-  //   'England',
-  //   'Scotland',
-  //   'Wales',
-  //   'Northern Ireland',
-  // ];
-
   // formControl = new FormControl();
   // protected countries: string[] = [
   //   'England',
@@ -159,14 +152,12 @@ export class AutoCompleteComponent implements OnInit {
   // ];
 
   // filteredCountries!: Observable<string[]>;
-
   // ngOnInit() {
   //   this.filteredCountries = this.formControl.valueChanges.pipe(
   //     startWith(''),
   //     map((value: string) => this.filter(value))
   //   );
   // }
-
   // private filter(value: string): string[] {
   //   const filterValue = value.toLowerCase();
   //   return this.countries.filter((option) =>

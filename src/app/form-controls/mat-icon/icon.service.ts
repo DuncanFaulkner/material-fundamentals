@@ -35,6 +35,8 @@ export class IconService {
   // }
 
   private load(icons: typeof Icons): void {
+    console.log(icons);
+
     Object.keys(icons).forEach((icon) => {
       this.matIconRegistry.addSvgIcon(
         icon,

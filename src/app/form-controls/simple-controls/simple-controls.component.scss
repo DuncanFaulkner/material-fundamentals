@@ -21,3 +21,11 @@ li {
 mat-radio-button {
   margin-right: 30px;
 }
+
+button {
+  display:inline-flex;
+  flex-direction: row;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+}

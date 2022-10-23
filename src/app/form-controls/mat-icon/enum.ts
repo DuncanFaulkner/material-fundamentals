@@ -1,6 +1,9 @@
 export enum Icons {
   home,
   shield,
+  cut,
+  copy,
+  paste,
 }
 
 // array version

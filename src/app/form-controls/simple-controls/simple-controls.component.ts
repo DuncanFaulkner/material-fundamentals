@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatRadioChange } from '@angular/material/radio';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { IconService } from '../mat-icon/icon.service';
 
 export interface Recipe {
   name: string;
@@ -22,6 +23,9 @@ const OPTIONS = {
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: OPTIONS }],
 })
 export class SimpleControlsComponent {
+  constructor(private iconService: IconService) {
+    this.iconService.registerIcons();
+  }
   // used in checkbox sample
   recipe: Recipe = {
     name: 'Ingredients',
