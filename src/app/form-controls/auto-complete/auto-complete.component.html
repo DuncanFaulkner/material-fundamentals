@@ -53,36 +53,45 @@
 </div> -->
 
 <!-- attach panel to another component -->
-<!-- <div>
-  <mat-form-field appearance="outline">
-    <mat-label>Attach Autocomplete To Another Component</mat-label>
-    <input
-      type="text"
-      matInput
-      [matAutocomplete]="auto"
-      [formControl]="formControl"
-      [matAutocompleteConnectedTo]="origin"
-    />
-  </mat-form-field>
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option
-      *ngFor="let country of filteredCountries | async"
-      [value]="country"
-      >{{ country }}
-    </mat-option>
-  </mat-autocomplete>
+<div
+  style="
+    outline: 1px solid darkgrey;
+    width: 370px;
+    height: 400px;
+    margin-left: 40px;
+  "
+>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Attach Autocomplete To Another Component</mat-label>
+      <input
+        type="text"
+        matInput
+        [matAutocomplete]="auto"
+        [formControl]="formControl"
+        [matAutocompleteConnectedTo]="origin"
+      />
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let country of filteredCountries | async"
+        [value]="country"
+        >{{ country }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+
+  <mat-label
+    matAutocompleteOrigin
+    #origin="matAutocompleteOrigin"
+    style="position: relative; top: 100px; width: 300px; margin-left: 20px"
+  >
+    This is a label with the autocomplete panel attached
+  </mat-label>
 </div>
 
-<mat-label
-  matAutocompleteOrigin
-  #origin="matAutocompleteOrigin"
-  style="position: relative; top: 100px; width: 300px; margin-left: 40px"
->
-  This is a label with the autocomplete panel attached
-</mat-label> -->
-
 <!-- Option groups -->
-<form [formGroup]="countyForm">
+<!-- <form [formGroup]="countyForm">
   <mat-form-field>
     <input
       type="text"
@@ -103,4 +112,4 @@
       </mat-optgroup>
     </mat-autocomplete>
   </mat-form-field>
-</form>
+</form> -->
