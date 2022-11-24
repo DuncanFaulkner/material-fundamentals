@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
@@ -22,6 +23,7 @@ import { IconService } from './mat-icon/icon.service';
 import { MatIconComponent } from './mat-icon/mat-icon.component';
 import { MatTableComponent } from './mat-table/mat-table.component';
 import { SimpleControlsComponent } from './simple-controls/simple-controls.component';
+import { SliderComponent } from './slider/slider.component';
 
 const routes: Routes = [
   { path: 'auto-complete', component: AutoCompleteComponent },
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'mat-form-field', component: MatFormFieldComponent },
   { path: 'mat-table', component: MatTableComponent },
   { path: 'simple-controls', component: SimpleControlsComponent },
+  { path: 'slider', component: SliderComponent },
 ];
 
 const OPTIONS = {
@@ -60,6 +63,7 @@ const MATERIALMODULES = [
   MatRadioModule,
   MatSlideToggleModule,
   MatDividerModule,
+  MatSliderModule,
 ];
 
 const PROVIDERS = [
@@ -75,6 +79,7 @@ const PROVIDERS = [
     MatFormFieldComponent,
     MatTableComponent,
     SimpleControlsComponent,
+    SliderComponent,
   ],
   imports: [ANGULARMODULES, MATERIALMODULES],
   exports: [RouterModule],

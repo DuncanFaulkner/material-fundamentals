@@ -1,0 +1,96 @@
+<!-- version 14 -->
+<!--
+<hr />
+<mat-label>Min</mat-label>
+<mat-slider [min]="50"></mat-slider>
+<br />
+<mat-label>Max</mat-label>
+<mat-slider [max]="50"></mat-slider>
+<br />
+<mat-label>Step</mat-label>
+<mat-slider [step]="10"></mat-slider>
+<br />
+<mat-label>Value</mat-label>
+<mat-slider [value]="100"></mat-slider>
+<br />
+<mat-slider thumbLabel></mat-slider>
+<br />
+<mat-slider [displayWith]="formatLabel" thumbLabel>
+</mat-slider>
+<br />
+<mat-slider [min]="10" thumbLabel></mat-slider>
+<mat-slider [min]="-10" thumbLabel></mat-slider>
+<br />
+<mat-slider [max]="500" thumbLabel></mat-slider>
+<br />
+<mat-slider horizontal></mat-slider>
+<br />
+<mat-slider vertical></mat-slider>
+<br />
+<mat-slider invert></mat-slider>
+<br />
+<mat-slider invert vertical></mat-slider>
+<br />
+<mat-slider [step]="10" thumbLabel></mat-slider>
+<br />
+<mat-slider thumbLabel tickInterval="5"></mat-slider>
+<br />
+<mat-slider thumbLabel tickInterval="auto"></mat-slider>
+<br />
+<mat-slider color="primary" thumbLabel></mat-slider>
+<br />
+<mat-slider [disabled]="true"></mat-slider>
+<br />
+<mat-slider (input)="onInputChange($event)" thumbLabel>
+</mat-slider>
+<br />
+<mat-slider (change)="onChange($event)"  thumbLabel>
+</mat-slider>
+ -->
+
+<!-- version 15 -->
+
+<div style="margin-left: 50px">
+  <mat-slider>
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider>
+    <input matSliderStartThumb />
+    <input matSliderEndThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete>
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete>
+    <input matSliderStartThumb />
+    <input matSliderEndThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete step="5" showTickMarks>
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete [displayWith]="formatLabel">
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete>
+    <input [attr.aria-valuetext]="formatLabel" matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete [min]="-50">
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete [max]="75">
+    <input matSliderThumb />
+  </mat-slider>
+  <br />
+  <mat-slider discrete [max]="50">
+    <input matSliderStartThumb />
+    <input matSliderEndThumb />
+  </mat-slider>
+</div>
